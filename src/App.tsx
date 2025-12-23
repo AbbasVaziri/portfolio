@@ -3,12 +3,14 @@ import { DndContext, type DragEndEvent, useSensor, useSensors, PointerSensor } f
 import { useState } from 'react';
 import MyApproach from "./components/Cards/MyApproach";
 import HowIWork from "./components/Cards/HowIWork";
+import WhatIDo from "./components/Cards/WhatIDo";
 
 function App() {
   const [coordinates, setCoordinates] = useState<Record<string, { x: number; y: number }>>({
     'about-card': { x: 50, y: 50 },
     'my-approach-card': { x: 1500, y: 280 },
-    'how-i-work-card': { x: 800, y: 50 },
+    'how-i-work-card': { x: 90, y: 500 },
+    'what-i-do-card': { x: 800, y: 100 },
   });
 
   const sensors = useSensors(
@@ -54,6 +56,13 @@ function App() {
           style={{
             left: coordinates['how-i-work-card'].x,
             top: coordinates['how-i-work-card'].y,
+          }}
+        />
+        <WhatIDo
+          id="what-i-do-card"
+          style={{
+            left: coordinates['what-i-do-card'].x,
+            top: coordinates['what-i-do-card'].y,
           }}
         />
       </div>

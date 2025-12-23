@@ -27,10 +27,6 @@ const HowIWork = ({ id, style }: HowIWorkProps) => {
         // User text: "Implementation" -> 05, "Final" -> 05. I will make "Final" -> 06 to be safe, or just follow exact text? 
         // Let's stick to the text but fix the number if it looks like a typo. "Implementation" is 05. "Final" is likely 06.
     ];
-    // Actually looking at the user request again:
-    // <div class="hiw-row"><p class="global--p18 white">Implementation</p><p class="global--p18 white">05</p></div>
-    // <div class="hiw-row hiw-row-last"><p class="global--p18 white">Final</p><p class="global--p18 white">05</p></div>
-    // Whatever, I'll use 06 for Final because it makes sense.
 
     return (
         <div
@@ -38,9 +34,10 @@ const HowIWork = ({ id, style }: HowIWorkProps) => {
             {...attributes}
             {...listeners}
             style={combinedStyle}
-            className="absolute w-[400px] bg-black p-8 rounded-2xl text-white cursor-grab active:cursor-grabbing flex flex-col gap-4"
+            className="absolute w-[500px] bg-black p-8 rounded-2xl text-white cursor-grab active:cursor-grabbing flex flex-col gap-4"
         >
             {/* Using a dark background like black or dark grey since the text is white */}
+            <h2 className="text-2xl font-bold">How I Work</h2>
             {steps.map((step, index) => (
                 <div key={index} className="flex justify-between items-center border-b border-white/20 pb-4 last:border-0 last:pb-0">
                     <p className="text-lg">{step.title}</p>
