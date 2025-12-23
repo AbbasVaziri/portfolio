@@ -2,11 +2,13 @@ import AboutCard from "./components/Cards/AboutCard";
 import { DndContext, type DragEndEvent, useSensor, useSensors, PointerSensor } from '@dnd-kit/core';
 import { useState } from 'react';
 import MyApproach from "./components/Cards/MyApproach";
+import HowIWork from "./components/Cards/HowIWork";
 
 function App() {
   const [coordinates, setCoordinates] = useState<Record<string, { x: number; y: number }>>({
     'about-card': { x: 50, y: 50 },
     'my-approach-card': { x: 1500, y: 280 },
+    'how-i-work-card': { x: 800, y: 50 },
   });
 
   const sensors = useSensors(
@@ -45,6 +47,13 @@ function App() {
           style={{
             left: coordinates['my-approach-card'].x,
             top: coordinates['my-approach-card'].y,
+          }}
+        />
+        <HowIWork
+          id="how-i-work-card"
+          style={{
+            left: coordinates['how-i-work-card'].x,
+            top: coordinates['how-i-work-card'].y,
           }}
         />
       </div>
