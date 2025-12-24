@@ -34,7 +34,7 @@ const HowIWork = ({ id, style }: HowIWorkProps) => {
             {...attributes}
             {...listeners}
             style={combinedStyle}
-            className="absolute w-[500px] bg-black p-8 rounded-2xl text-white cursor-grab active:cursor-grabbing flex flex-col gap-4"
+            className="absolute w-[500px] bg-[#0e9359] p-8 rounded-2xl text-white cursor-grab active:cursor-grabbing flex flex-col gap-4"
         >
             {/* Using a dark background like black or dark grey since the text is white */}
             <h2 className="text-2xl font-bold">How I Work</h2>

@@ -23,7 +23,7 @@ const Card = ({ id, style }: AboutCardProps) => {
             style={combinedStyle}
             {...listeners}
             {...attributes}
-            className='bg-red-500 p-4 rounded-2xl w-[800px] h-[400px] text-white absolute cursor-grab active:cursor-grabbing'
+            className='bg-[#7a5700] p-4 rounded-2xl w-[800px] h-[400px] text-white absolute cursor-grab active:cursor-grabbing'
         >
             {/* header */}
             <div className="flex justify-between">
