@@ -6,6 +6,9 @@ import HowIWork from "./components/Cards/HowIWork";
 import WhatIDo from "./components/Cards/WhatIDo";
 import YouAsk from "./components/Cards/YouAsk";
 import WhyNot from "./components/Cards/WhyNot";
+import HanilCard from "./components/Cards/HanilCard";
+import HanilDashCard from "./components/Cards/HanilDashCard";
+import EvasenceCard from "./components/Cards/EvasenceCard";
 import Lenis from 'lenis';
 import { useRef, useEffect } from 'react';
 
@@ -15,8 +18,11 @@ function App() {
     'my-approach-card': { x: 1500, y: 25 },
     'how-i-work-card': { x: 150, y: 600 },
     'what-i-do-card': { x: 900, y: 1000 },
-    'you-ask-card': { x: 1500, y: 300 },
-    'why-not-card': { x: 100, y: 1500 },  
+    'you-ask-card': { x: 1500, y: 450 },
+    'why-not-card': { x: 100, y: 1500 },
+    'hanil-card': { x: 1200, y: 1600 }, 
+    'hanil-dash-card': { x: 50, y: 2100 },
+    'evasence-card': { x: 800, y: 2300 }, 
   });
 
   const sensors = useSensors(
@@ -108,6 +114,27 @@ function App() {
           style={{
             left: coordinates['you-ask-card'].x,
             top: coordinates['you-ask-card'].y,
+          }}
+        />
+        <HanilCard
+          id="hanil-card"
+          style={{
+            left: coordinates['hanil-card'].x,
+            top: coordinates['hanil-card'].y,
+          }}
+        />
+        <HanilDashCard
+          id="hanil-dash-card"
+          style={{
+            left: coordinates['hanil-dash-card'].x,
+            top: coordinates['hanil-dash-card'].y,
+          }}
+        />
+        <EvasenceCard
+          id="evasence-card"
+          style={{
+            left: coordinates['evasence-card'].x,
+            top: coordinates['evasence-card'].y,
           }}
         />
         <WhyNot

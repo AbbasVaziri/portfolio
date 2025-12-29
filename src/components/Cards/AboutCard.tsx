@@ -32,7 +32,6 @@ const Card = ({ id, style }: AboutCardProps) => {
             </div>
             {/* content */}
             <p className='mt-4'>Hi, I'm a frontend developer with a passion for creating beautiful and functional websites. I have experience working with a variety of technologies and frameworks, and I'm always looking for new challenges to take on.</p>
-            <img src='./public/photo_2025-10-12_14-35-30.jpg' className='mt-4' width={200} height={200} alt="" />
         </div>
     )
 }

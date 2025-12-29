@@ -30,7 +30,6 @@ const WhatIDo = ({ id, style }: WhatIDoProps) => {
             style={combinedStyle}
             className="absolute w-[500px] bg-stone-900 p-8 rounded-2xl text-white cursor-grab active:cursor-grabbing flex flex-col gap-4"
         >
-            {/* The user specifically asked for a brown color. Using a deep brown #3E2723 */}
             <div className="name-block">
                 <p className="text-xl opacity-70">what I do</p>
             </div>
