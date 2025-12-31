@@ -20,9 +20,9 @@ function App() {
     'what-i-do-card': { x: 900, y: 1000 },
     'you-ask-card': { x: 1500, y: 450 },
     'why-not-card': { x: 100, y: 1500 },
-    'hanil-card': { x: 1200, y: 1600 }, 
+    'hanil-card': { x: 1200, y: 1600 },
     'hanil-dash-card': { x: 50, y: 2100 },
-    'evasence-card': { x: 800, y: 2300 }, 
+    'evasence-card': { x: 800, y: 2300 },
   });
 
   const sensors = useSensors(
@@ -70,82 +70,85 @@ function App() {
   const pageHeight = Math.max(window.innerHeight, maxY + 500);
 
   return (
-    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-      <div
-        ref={containerRef}
-        className="w-full relative bg-stone-800"
-        style={{ height: pageHeight, minHeight: '100vh' }}
-      >
-        <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
-          <h1 className="text-[14vw] font-black text-white uppercase tracking-tighter select-none">
-            Web Developer
-          </h1>
+    <>
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <div
+          ref={containerRef}
+          className="w-full relative bg-stone-800"
+          style={{ height: pageHeight, minHeight: '100vh' }}
+        >
+          <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
+            <h1 className="text-[14vw] font-black text-white uppercase tracking-tighter select-none">
+              Web Developer
+            </h1>
+          </div>
+          <AboutCard
+            id="about-card"
+            style={{
+              left: coordinates['about-card'].x,
+              top: coordinates['about-card'].y,
+            }}
+          />
+          <MyApproach
+            id="my-approach-card"
+            style={{
+              left: coordinates['my-approach-card'].x,
+              top: coordinates['my-approach-card'].y,
+            }}
+          />
+          <HowIWork
+            id="how-i-work-card"
+            style={{
+              left: coordinates['how-i-work-card'].x,
+              top: coordinates['how-i-work-card'].y,
+            }}
+          />
+          <WhatIDo
+            id="what-i-do-card"
+            style={{
+              left: coordinates['what-i-do-card'].x,
+              top: coordinates['what-i-do-card'].y,
+            }}
+          />
+          <YouAsk
+            id="you-ask-card"
+            style={{
+              left: coordinates['you-ask-card'].x,
+              top: coordinates['you-ask-card'].y,
+            }}
+          />
+          <HanilCard
+            id="hanil-card"
+            style={{
+              left: coordinates['hanil-card'].x,
+              top: coordinates['hanil-card'].y,
+            }}
+          />
+          <HanilDashCard
+            id="hanil-dash-card"
+            style={{
+              left: coordinates['hanil-dash-card'].x,
+              top: coordinates['hanil-dash-card'].y,
+            }}
+          />
+          <EvasenceCard
+            id="evasence-card"
+            style={{
+              left: coordinates['evasence-card'].x,
+              top: coordinates['evasence-card'].y,
+            }}
+          />
+          <WhyNot
+            id="why-not-card"
+            style={{
+              left: coordinates['why-not-card'].x,
+              top: coordinates['why-not-card'].y,
+            }}
+          />
         </div>
-        <AboutCard
-          id="about-card"
-          style={{
-            left: coordinates['about-card'].x,
-            top: coordinates['about-card'].y,
-          }}
-        />
-        <MyApproach
-          id="my-approach-card"
-          style={{
-            left: coordinates['my-approach-card'].x,
-            top: coordinates['my-approach-card'].y,
-          }}
-        />
-        <HowIWork
-          id="how-i-work-card"
-          style={{
-            left: coordinates['how-i-work-card'].x,
-            top: coordinates['how-i-work-card'].y,
-          }}
-        />
-        <WhatIDo
-          id="what-i-do-card"
-          style={{
-            left: coordinates['what-i-do-card'].x,
-            top: coordinates['what-i-do-card'].y,
-          }}
-        />
-        <YouAsk
-          id="you-ask-card"
-          style={{
-            left: coordinates['you-ask-card'].x,
-            top: coordinates['you-ask-card'].y,
-          }}
-        />
-        <HanilCard
-          id="hanil-card"
-          style={{
-            left: coordinates['hanil-card'].x,
-            top: coordinates['hanil-card'].y,
-          }}
-        />
-        <HanilDashCard
-          id="hanil-dash-card"
-          style={{
-            left: coordinates['hanil-dash-card'].x,
-            top: coordinates['hanil-dash-card'].y,
-          }}
-        />
-        <EvasenceCard
-          id="evasence-card"
-          style={{
-            left: coordinates['evasence-card'].x,
-            top: coordinates['evasence-card'].y,
-          }}
-        />
-        <WhyNot
-          id="why-not-card"
-          style={{
-            left: coordinates['why-not-card'].x,
-            top: coordinates['why-not-card'].y,
-          }}
-        />
-      </div>
-    </DndContext>
+      </DndContext>
+      
+    </>
   );
 }
 

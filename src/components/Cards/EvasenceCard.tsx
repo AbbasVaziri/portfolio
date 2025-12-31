@@ -36,12 +36,8 @@ const EvasenceCard = ({ id, style }: EvasenceCardProps) => {
             </div>
 
             <div className='w-full rounded-2xl overflow-hidden aspect-video bg-black/5'>
-                <video
-                    src="/evasance-f.webm"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <img
+                    src="/evasance.gif"
                     className="w-full h-full object-cover"
                 />
             </div>

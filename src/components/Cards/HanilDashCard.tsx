@@ -39,14 +39,10 @@ const HanilDashCard = ({ id, style }: HanilDashCardProps) => {
             </div>
 
             <div className='w-full rounded-2xl overflow-hidden aspect-video bg-black/5'>
-                <video
-                    src="/hanillllll.webm"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <img
+                    src="/hanil-dash.gif"
+                    alt="Hanil Admin Panel Demo"
                     className="w-full h-full object-cover"
-                    
                 />
             </div>
         </div>

@@ -36,12 +36,8 @@ const HanilCard = ({ id, style }: HanilCardProps) => {
             </div>
 
             <div className='w-full rounded-2xl overflow-hidden aspect-video bg-black/5'>
-                <video
-                    src="/Hanil.webm"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <img
+                    src="/Hanil.gif"
                     className="w-full h-full object-cover"
                 />
             </div>
