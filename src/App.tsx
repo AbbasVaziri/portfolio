@@ -2,11 +2,28 @@ import AboutCard from "./components/Cards/AboutCard";
 import { DndContext, type DragEndEvent, useSensor, useSensors, PointerSensor } from '@dnd-kit/core';
 import { useState } from 'react';
 import MyApproach from "./components/Cards/MyApproach";
+import HowIWork from "./components/Cards/HowIWork";
+import WhatIDo from "./components/Cards/WhatIDo";
+import YouAsk from "./components/Cards/YouAsk";
+import WhyNot from "./components/Cards/WhyNot";
+import HanilCard from "./components/Cards/HanilCard";
+import HanilDashCard from "./components/Cards/HanilDashCard";
+import EvasenceCard from "./components/Cards/EvasenceCard";
+import Footer from "./components/Footer";
+import Lenis from 'lenis';
+import { useRef, useEffect } from 'react';
 
 function App() {
   const [coordinates, setCoordinates] = useState<Record<string, { x: number; y: number }>>({
-    'about-card': { x: 50, y: 50 },
-    'my-approach-card': { x: 1500, y: 280 },
+    'about-card': { x: 570, y: 50 },
+    'my-approach-card': { x: 1500, y: 25 },
+    'how-i-work-card': { x: 150, y: 600 },
+    'what-i-do-card': { x: 900, y: 1000 },
+    'you-ask-card': { x: 1500, y: 450 },
+    'why-not-card': { x: 100, y: 1500 },
+    'hanil-card': { x: 1200, y: 1600 },
+    'hanil-dash-card': { x: 150, y: 2200 },
+    'evasence-card': { x: 1150, y: 2700 },
   });
 
   const sensors = useSensors(
@@ -16,6 +33,26 @@ function App() {
       },
     })
   );
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, delta } = event;
@@ -30,25 +67,90 @@ function App() {
     }));
   }
 
+  const maxY = Math.max(...Object.values(coordinates).map(c => c.y));
+  const pageHeight = Math.max(window.innerHeight, maxY + 900);
+
   return (
-    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-      <div className="w-screen h-screen relative bg-gray-100 overflow-hidden">
-        <AboutCard
-          id="about-card"
-          style={{
-            left: coordinates['about-card'].x,
-            top: coordinates['about-card'].y,
-          }}
-        />
-        <MyApproach
-          id="my-approach-card"
-          style={{
-            left: coordinates['my-approach-card'].x,
-            top: coordinates['my-approach-card'].y,
-          }}
-        />
-      </div>
-    </DndContext>
+    <>
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <div
+          ref={containerRef}
+          className="w-full relative bg-stone-800"
+          style={{ height: pageHeight, minHeight: '100vh' }}
+        >
+          <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
+            <h1 className="text-[14vw] font-black text-white uppercase tracking-tighter select-none">
+              Web Developer
+            </h1>
+          </div>
+          <AboutCard
+            id="about-card"
+            style={{
+              left: coordinates['about-card'].x,
+              top: coordinates['about-card'].y,
+            }}
+          />
+          <MyApproach
+            id="my-approach-card"
+            style={{
+              left: coordinates['my-approach-card'].x,
+              top: coordinates['my-approach-card'].y,
+            }}
+          />
+          <HowIWork
+            id="how-i-work-card"
+            style={{
+              left: coordinates['how-i-work-card'].x,
+              top: coordinates['how-i-work-card'].y,
+            }}
+          />
+          <WhatIDo
+            id="what-i-do-card"
+            style={{
+              left: coordinates['what-i-do-card'].x,
+              top: coordinates['what-i-do-card'].y,
+            }}
+          />
+          <YouAsk
+            id="you-ask-card"
+            style={{
+              left: coordinates['you-ask-card'].x,
+              top: coordinates['you-ask-card'].y,
+            }}
+          />
+          <HanilCard
+            id="hanil-card"
+            style={{
+              left: coordinates['hanil-card'].x,
+              top: coordinates['hanil-card'].y,
+            }}
+          />
+          <HanilDashCard
+            id="hanil-dash-card"
+            style={{
+              left: coordinates['hanil-dash-card'].x,
+              top: coordinates['hanil-dash-card'].y,
+            }}
+          />
+          <EvasenceCard
+            id="evasence-card"
+            style={{
+              left: coordinates['evasence-card'].x,
+              top: coordinates['evasence-card'].y,
+            }}
+          />
+          <WhyNot
+            id="why-not-card"
+            style={{
+              left: coordinates['why-not-card'].x,
+              top: coordinates['why-not-card'].y,
+            }}
+          />
+        </div>
+        <Footer />
+      </DndContext>
+
+    </>
   );
 }
 
