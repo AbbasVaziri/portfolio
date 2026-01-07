@@ -9,6 +9,7 @@ import WhyNot from "./components/Cards/WhyNot";
 import HanilCard from "./components/Cards/HanilCard";
 import HanilDashCard from "./components/Cards/HanilDashCard";
 import EvasenceCard from "./components/Cards/EvasenceCard";
+import Footer from "./components/Footer";
 import Lenis from 'lenis';
 import { useRef, useEffect } from 'react';
 
@@ -21,8 +22,8 @@ function App() {
     'you-ask-card': { x: 1500, y: 450 },
     'why-not-card': { x: 100, y: 1500 },
     'hanil-card': { x: 1200, y: 1600 },
-    'hanil-dash-card': { x: 50, y: 2100 },
-    'evasence-card': { x: 800, y: 2300 },
+    'hanil-dash-card': { x: 150, y: 2200 },
+    'evasence-card': { x: 1150, y: 2700 },
   });
 
   const sensors = useSensors(
@@ -67,7 +68,7 @@ function App() {
   }
 
   const maxY = Math.max(...Object.values(coordinates).map(c => c.y));
-  const pageHeight = Math.max(window.innerHeight, maxY + 500);
+  const pageHeight = Math.max(window.innerHeight, maxY + 900);
 
   return (
     <>
@@ -146,8 +147,9 @@ function App() {
             }}
           />
         </div>
+        <Footer />
       </DndContext>
-      
+
     </>
   );
 }
